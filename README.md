@@ -15,13 +15,12 @@ Loki is a machine-learning-based chatbot that reads response data from a JSON fi
 ## **Project Structure**  
 ```
 Loki-Chatbot/
-│── data.json                # JSON file containing predefined responses
+│── intents.json             # JSON file containing predefined responses
 │── train.py                 # Script to train the chatbot model
-│── chat.py                  # Chat interface for user interaction
+│── chatbot.py               # Chat interface for user interaction
 │── model.h5                 # Trained model file
 │── words.pkl                # Stored words list
-│── classes.pkl              # Stored classes list
-│── nltk_utils.py            # NLP helper functions for text processing
+│── classes.pkl              # Stored classes list 
 │── README.md                # Project documentation
 ```  
 
@@ -33,7 +32,7 @@ pip install nltk tensorflow keras numpy json pickle
 
 ## **How It Works**  
 1. **Data Processing**:  
-   - Reads response patterns and tags from `data.json`.  
+   - Reads response patterns and tags from `intents.json`.  
    - Tokenizes and lemmatizes words using NLTK.  
    - Stores processed words and classes using `pickle`.  
 
@@ -42,15 +41,15 @@ pip install nltk tensorflow keras numpy json pickle
    - Categorical cross-entropy loss and Adam optimizer for training.  
    - Trained model is saved as `model.h5`.  
 
-3. **Chatting with Loki** (`chat.py`):  
+3. **Chatting with Loki** (`chatbot.py`):  
    - Cleans user input.  
    - Predicts the most likely class using the trained model.  
-   - Fetches the best response from `data.json`.  
+   - Fetches the best response from `intents.json`.  
 
 ## **Usage**  
 Run the chatbot:  
 ```bash
-python chat.py
+python chatbot.py
 ```  
 
 Enter questions, and Loki will respond based on learned patterns!  
